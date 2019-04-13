@@ -3,14 +3,14 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 5s linear;
   height: 20vmin;
   pointer-events: none;
 }
 
 .App-header {
   background-color: #ffffff;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,8 +20,15 @@
 }
 
 .App-link {
+  font-size: 16px;
   padding-top: 64px;
-  color: #61dafb;
+  color: #095b72;
+}
+
+.title {
+  font-size: 18px;
+  font-style: bold;
+  color: #095b72;
 }
 
 .combo-button {
@@ -32,6 +39,16 @@
 .button-common {
   padding: 8px;
   margin: 8px;
+}
+
+.progressbar {
+  width: 500px;
+  padding: 24px;
+}
+
+.Footer {
+  font-size: 10px;
+  color: #095b72;
 }
 
 @keyframes App-logo-spin {
