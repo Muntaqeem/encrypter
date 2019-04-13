@@ -2,6 +2,7 @@
   "name": "encrypter",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://triplemzim.github.io/encrypter",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "react": "^16.8.6",
