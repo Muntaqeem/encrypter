@@ -147,6 +147,7 @@ class App extends Component {
       <div className="App">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
         <p class="title">Offline Encrypter: Encrypt/Decrypt files with password!</p>
+        <h5>Please remember to allow popup and set file extension after decrypting.</h5>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <TextField
