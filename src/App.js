@@ -10,8 +10,13 @@ const inputStyle = {
   display: 'none'
 }
 
+const root = {
+  display: 'block'
+}
+
 let progressVal = 0;
 let lastProgress = 0;
+let content = null;
 
 class App extends Component {
   constructor(props){
@@ -22,6 +27,7 @@ class App extends Component {
       progressState: 0
     }
     this.fileinputRef = React.createRef();
+    this.downloadButtonRef = React.createRef();
     window.setInterval(()=>{
       this.checkProgress();
     },250);
@@ -30,6 +36,9 @@ class App extends Component {
   checkProgress = () => {
     if(progressVal !== lastProgress){
       lastProgress = progressVal;
+      if(lastProgress !== 100) {
+        this.downloadButtonRef.current.style.display = 'none';
+      }
       this.setState({
         progressState: lastProgress
       });
@@ -92,7 +101,8 @@ class App extends Component {
       }
 
       let output = new Blob([byteArray], {type: 'video/zim'});
-      window.open(URL.createObjectURL(output), 'one.mkv');
+      content = output;
+      window.location = (URL.createObjectURL(output));
     }
 
     // reader.onprogress = (data) => {
@@ -133,13 +143,19 @@ class App extends Component {
       byteArray.reverse();
 
       let output = new Blob([byteArray], {type: 'video/mkv'});
-      window.open(URL.createObjectURL(output), 'one.mkv');
+      window.location = URL.createObjectURL(output);
     }
 
   }
 
+  onClickDownload = () => {
+    window.location = URL.createObjectURL(content);
+  }
 
-
+  getDownloadStatus = () => {
+    if(lastProgress === 100) return inputStyle;
+    return root;
+  }
 
 
   render() {
@@ -147,7 +163,7 @@ class App extends Component {
       <div className="App">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
         <p class="title">Offline Encrypter: Encrypt/Decrypt files with password!</p>
-        <h5>Please remember to allow popup and set file extension after decrypting.</h5>
+        <h5>Please remember to set file extension after decrypting.</h5>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <TextField

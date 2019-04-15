@@ -10,7 +10,7 @@
 
 .App-header {
   background-color: #ffffff;
-  min-height: 80vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,13 +32,17 @@
 }
 
 .combo-button {
-  padding: 8px;
+  padding: 16px;
   margin: 8px;
   display: inline-block;
 }
 .button-common {
   padding: 8px;
   margin: 8px;
+}
+
+.no-display {
+  display: none;
 }
 
 .progressbar {
@@ -49,6 +53,11 @@
 .Footer {
   font-size: 10px;
   color: #095b72;
+}
+
+.button-download {
+  margin-top: 16px;
+  padding-bottom: 8px;
 }
 
 @keyframes App-logo-spin {
